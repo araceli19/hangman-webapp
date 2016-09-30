@@ -1,22 +1,36 @@
 package edu.csumb.cst438fa16.hangman;
 
 import static org.junit.Assert.*;
+
 import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
 public class HangmanTest {
-    @Test
+	
+	
+	
+	 
+	     /**
+	      * Acceptance test:
+	      *
+	      *   Given I am on the hangman page
+	      *   When I entered "c"
+	      *   Then the letter should be read
+	      */
+
+	@Test
     public void testEmptyWord() {
 	Hangman hangman = new Hangman("");
 	assertThat(hangman.start(), equalTo(""));
 	assertThat(hangman.match("abcdefghijklmnopqrstuvwxyz"), equalTo(""));
     }
-
+	
     @Test(expected=IllegalArgumentException.class)
     public void testUpperCaseWord() {
 	Hangman hangman = new Hangman("A");
     }
+    
 
     @Test
     public void testStart() {
@@ -47,4 +61,5 @@ public class HangmanTest {
 	Hangman hangman = new Hangman("cat");
 	assertThat(hangman.match("catz"), equalTo("cat"));
     }
+    
 }

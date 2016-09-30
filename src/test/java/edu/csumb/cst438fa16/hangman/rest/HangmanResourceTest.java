@@ -60,7 +60,15 @@ public class HangmanResourceTest extends JerseyTest {
         assertThat(response.getStatus(),
                    equalTo(Response.Status.BAD_REQUEST.getStatusCode()));
     }
-
+    /*@Test
+    public void testGoodGuess(){
+    	WebTarget webTarget = target("match").queryParam("oldPattern", "...")
+                .queryParam("oldGuesses", "c")
+                .queryParam("newGuesses", "c");
+String thematch = webTarget.request().get(String.class);
+assertThat(thematch, equalTo("c"));
+    }
+*/
     @Test
     public void testMatchWithWrongOldPatternOldGuesses() {
         WebTarget webTarget = target("match").queryParam("oldPattern", ".a.")
